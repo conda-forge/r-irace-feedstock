@@ -1,4 +1,4 @@
-{% set version = "3.4" %}
+{% set version = '3.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,20 +13,28 @@ source:
   sha256: b5b7b4ebdb80db115ebeac5d17b0d34cd97c7aa8ebf85054a31358fffd44af4f
 
 build:
-  merge_build_host: true  # [win]
+  merge_build_host: True  # [win]
   number: 0
-  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
   host:
     - r-base
+    - r-r6
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
+    - r-r6
 
 test:
   commands:
@@ -34,12 +42,14 @@ test:
     - "\"%R%\" -e \"library('irace')\""  # [win]
 
 about:
-  home: http://iridia.ulb.ac.be/irace
-  license: GPL (>= 2)
-  summary: Iterated race is an extension of the Iterated F-race method for the automatic configuration of optimization algorithms, that is, (offline) tuning their
-    parameters by finding the most appropriate settings given a set of instances of an optimization problem.
-  license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  home: http://iridia.ulb.ac.be/irace, https://github.com/MLopez-Ibanez/irace
+  license: GPL-2
+  summary: Iterated race is an extension of the Iterated F-race method for the automatic configuration
+    of optimization algorithms, that is, (offline) tuning their parameters by finding
+    the most appropriate settings given a set of instances of an optimization problem.
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -50,21 +60,22 @@ extra:
 # Type: Package
 # Title: Iterated Racing for Automatic Algorithm Configuration
 # Description: Iterated race is an extension of the Iterated F-race method for the automatic configuration of optimization algorithms, that is, (offline) tuning their parameters by finding the most appropriate settings given a set of instances of an optimization problem.
-# Version: 3.3
-# Authors@R: c(person("Manuel", "Lopez-Ibanez", role = c("aut", "cre"), email = "manuel.lopez-ibanez@manchester.ac.uk", comment = c(ORCID = "0000-0001-9974-1295")), person("Jeremie", "Dubois-Lacoste", role = "aut"), person("Leslie", "Perez Caceres", role = c("aut")), person("Thomas", "Stutzle", role = "aut"), person("Mauro", "Birattari", role = "aut"), person("Eric", "Yuan", role = "ctb"), person("Prasanna", "Balaprakash", role = "ctb"))
+# Version: 3.4
+# Authors@R: c(person("Manuel", "Lopez-Ibanez", role = c("aut", "cre"), email = "manuel.lopez-ibanez@manchester.ac.uk", comment = c(ORCID = "0000-0001-9974-1295")), person("Jeremie", "Dubois-Lacoste", role = "aut"), person("Leslie", "Perez Caceres", role = "aut"), person("Thomas", "Stutzle", role = "aut"), person("Mauro", "Birattari", role = "aut"), person("Eric", "Yuan", role = "ctb"), person("Prasanna", "Balaprakash", role = "ctb"), person("Nguyen", "Dang", role = "ctb", email = "nttd@st-andrews.ac.uk"))
 # Depends: R (>= 3.2.0)
-# Imports: stats, utils, compiler
-# Suggests: Rmpi (>= 0.6.0), parallel, knitr, testthat, withr, mlr
+# Imports: stats, utils, compiler, R6
+# Suggests: Rmpi (>= 0.6.0), parallel, knitr, testthat, withr, mlr (>= 2.15.0), ParamHelpers, devtools, rhub
 # VignetteBuilder: knitr
 # License: GPL (>= 2)
-# URL: http://iridia.ulb.ac.be/irace
+# URL: http://iridia.ulb.ac.be/irace, https://github.com/MLopez-Ibanez/irace
+# BugReports: https://github.com/MLopez-Ibanez/irace/issues
 # ByteCompile: yes
 # LazyData: yes
 # Encoding: UTF-8
 # RoxygenNote: 6.1.1
-# NeedsCompilation: no
-# Packaged: 2019-04-26 17:10:34 UTC; manu
-# Author: Manuel Lopez-Ibanez [aut, cre] (<https://orcid.org/0000-0001-9974-1295>), Jeremie Dubois-Lacoste [aut], Leslie Perez Caceres [aut], Thomas Stutzle [aut], Mauro Birattari [aut], Eric Yuan [ctb], Prasanna Balaprakash [ctb]
+# NeedsCompilation: yes
+# Packaged: 2020-03-30 11:22:35 UTC; manu
+# Author: Manuel Lopez-Ibanez [aut, cre] (<https://orcid.org/0000-0001-9974-1295>), Jeremie Dubois-Lacoste [aut], Leslie Perez Caceres [aut], Thomas Stutzle [aut], Mauro Birattari [aut], Eric Yuan [ctb], Prasanna Balaprakash [ctb], Nguyen Dang [ctb]
 # Maintainer: Manuel Lopez-Ibanez <manuel.lopez-ibanez@manchester.ac.uk>
 # Repository: CRAN
-# Date/Publication: 2019-04-26 22:50:49 UTC
+# Date/Publication: 2020-03-30 12:30:02 UTC
