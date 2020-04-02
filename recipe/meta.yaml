@@ -43,10 +43,10 @@ test:
 
 about:
   home: http://iridia.ulb.ac.be/irace, https://github.com/MLopez-Ibanez/irace
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: Iterated race is an extension of the Iterated F-race method for the automatic configuration of optimization algorithms, that is, (offline) tuning their
     parameters by finding the most appropriate settings given a set of instances of an optimization problem.
-  license_family: GPL2
+  license_family: GPL
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
