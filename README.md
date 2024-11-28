@@ -7,20 +7,24 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-irace-feedsto
 About r-irace
 -------------
 
-Home: http://iridia.ulb.ac.be/irace, https://github.com/MLopez-Ibanez/irace
+Home: http://iridia.ulb.ac.be/irace
 
 Package license: GPL-2.0-or-later
 
 Summary: Iterated race is an extension of the Iterated F-race method for the automatic configuration of optimization algorithms, that is, (offline) tuning their parameters by finding the most appropriate settings given a set of instances of an optimization problem.
+
+Development: https://github.com/MLopez-Ibanez/irace
 
 About r-irace
 -------------
 
-Home: http://iridia.ulb.ac.be/irace, https://github.com/MLopez-Ibanez/irace
+Home: http://iridia.ulb.ac.be/irace
 
 Package license: GPL-2.0-or-later
 
 Summary: Iterated race is an extension of the Iterated F-race method for the automatic configuration of optimization algorithms, that is, (offline) tuning their parameters by finding the most appropriate settings given a set of instances of an optimization problem.
+
+Development: https://github.com/MLopez-Ibanez/irace
 
 Current build status
 ====================
