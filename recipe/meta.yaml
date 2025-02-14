@@ -1,4 +1,4 @@
-{% set version = "4.1" %}
+{% set version = "4.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/irace_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irace/irace_{{ version }}.tar.gz
-  sha256: a2278bf22ee139c38cd86aa39e0a6d0ca2b01aee8bab0f160dfa5a84047f030d
+  sha256: 58cfe6487141981a79411557e709061ffafca15a36289a71dd4e50a8afe4a7b1
 
 build:
   number: 0
@@ -34,18 +34,20 @@ requirements:
     - {{ posix }}zip             # [win]
   host:
     - r-base
+    - r-r6
+    - r-codetools
     - r-data.table >=1.15.0
     - r-fs
-    - r-matrixstats
-    - r-r6
+    - r-matrixstats >=1.4.1
     - r-spacefillr
     - r-withr
   run:
     - r-base
+    - r-r6
+    - r-codetools
     - r-data.table >=1.15.0
     - r-fs
-    - r-matrixstats
-    - r-r6
+    - r-matrixstats >=1.4.1
     - r-spacefillr
     - r-withr
 
