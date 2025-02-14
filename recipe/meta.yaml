@@ -34,18 +34,20 @@ requirements:
     - {{ posix }}zip             # [win]
   host:
     - r-base
+    - r-r6
+    - r-codetools
     - r-data.table >=1.15.0
     - r-fs
-    - r-matrixstats
-    - r-r6
+    - r-matrixstats >=1.4.1
     - r-spacefillr
     - r-withr
   run:
     - r-base
+    - r-r6
+    - r-codetools
     - r-data.table >=1.15.0
     - r-fs
-    - r-matrixstats
-    - r-r6
+    - r-matrixstats >=1.4.1
     - r-spacefillr
     - r-withr
 
