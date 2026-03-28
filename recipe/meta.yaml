@@ -1,4 +1,4 @@
-{% set version = "4.4.0" %}
+{% set version = "4.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/irace_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irace/irace_{{ version }}.tar.gz
-  sha256: ba181effbfe99b51f3aa2a30dccf810fb55e17a32ed46590965506aeb36ec5d5
+  sha256: 4c2ef050780c75054a3e5b5850bc3fd9899b7582b9b700db5c84de3e6580f504
 
 build:
   number: 0
